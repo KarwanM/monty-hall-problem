@@ -12,11 +12,27 @@ let stickLosser = 0;
 let switchWinner = 0;
 let switchLooser = 0;
 
-for (i = 0; i < 100; i++) {
+console.log(pickedDoor);
+
+for (i = 0; i < 1000; i++) {
   let random = Math.floor(Math.random() * 3);
   let probability = probabilities[random];
+  let remainingDoors = [];
 
-  let remainingDoors = probability.slice(1, 3);
+  if (pickedDoor === 0) {
+    remainingDoors = probability.slice(1, 3);
+  } else if (pickedDoor === 2) {
+    remainingDoors = probability.slice(0, 2);
+  } else {
+    remainingDoors = probability.filter(check = (prob, index) => {
+      if(index !== pickedDoor){
+        return prob
+      }
+    })
+    // remainingDoors.push(probability[0], probability[2]);
+  }
+
+
 
   const checkDoor = (door) => {
     if (door.every((d) => d === "Goat")) {
@@ -67,11 +83,9 @@ for (i = 0; i < 100; i++) {
     }
   };
 
-  const stick = stickToTheDoor(probability[0]);
+  const stick = stickToTheDoor(probability[pickedDoor]);
 
-  const switchDoor = switchTheDoor(
-    remainingDoors[unRevealedDoor]
-  );
+  const switchDoor = switchTheDoor(remainingDoors[unRevealedDoor]);
 
   // console.log(stick + switchDoor);
 }

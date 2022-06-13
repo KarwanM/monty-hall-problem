@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,56 @@
     <title>Monty Hall Problem</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1>Monty Hall Problem</h1>
-    <main>
-        
-    </main>
+    <div class="main-container">
+        <header>
+            <h1>Monty Hall problem</h1>
+            <q>The <span class="name">Monty Hall problem</span> is a brain teaser, in the form of a probability puzzle,
+                loosely based on the American television game show <span>Let's Make a Deal</span> and named after its
+                original host, <span>Monty Hall</span>. The problem was originally posed (and solved) in a letter by
+                <span>
+                    Steve Selvin</span> to the American Statistician in 1975.
+            </q>
+        </header>
+
+        <main>
+            <aside class="left-aside-guest">
+                <img src="./assets/guest.png" alt="Host">
+                <span>Guest</span>
+            </aside>
+
+            <section class="the-game">
+                <section class="game-intro">
+                    <h2>Start the Game</h2>
+                    <p>You are given the choice of three doors, behind one door is a prize (Car or Money, or ....)
+                        behind the other two, goats.
+                    </p>
+                </section>
+
+                <section class="doors-section">
+                    <h3>Pick a door</h3>
+                    <div class="doors">
+                        <div class="door1">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                        </div>
+                        <div class="door2">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                        </div>
+                        <div class="door3">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <aside class="left-aside-guest">
+                <img src="./assets/host.png" alt="">
+                <span>Host</span>
+            </aside>
+        </main>
+        <footer>KI | Monty Hall problem &copy; 2022</footer>
+    </div>
     <script src="./script.js"></script>
 </body>
+
 </html>

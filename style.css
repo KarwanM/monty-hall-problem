@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+/* --------------- Reset style --------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-color);
+}
+
+body {
+    background-color: var(--secondary-background-color);
+}
+
+.main-container{
+    margin: 5% 10%;
+}
+
+header h1{
+    text-align: center;
+}
+
+header p{
+    text-align: justify;
+    padding: 2vw 0;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 10px;
+}
+
+aside{
+    padding: 100px 0;
+}
+
+aside span{
+    display: block;
+    padding: 1vw 0;
+    text-align: center;
+}
+
+aside img{
+    width: 100%;
+}
+
+.game-intro h2{
+    text-align: center;
+    padding: 1vw 0;
+}
+
+.game-intro p{
+    padding: 1vw 0;
+}
+
+.doors-section > h3 {
+    text-align: center;
+    padding: 1vw 0;
+}
+
+.doors{
+    display: flex;
+    align-items: center;
+    column-gap: 1vw;
+}
+
+.doors > *{
+    cursor: pointer;
+}
+
+.doors img{
+    width: 100%;
+}
+
+footer{
+    text-align: center;
+    padding-top: 2vw;
+    border-top: 1px solid silver;
+}

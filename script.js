@@ -1,8 +1,80 @@
 const probabilities = [
-  ["Goat", "Goat", "Car"],
-  ["Goat", "Car", "Goat"],
-  ["Car", "Goat", "Goat"],
+  ["goat", "goat", "car"],
+  ["goat", "car", "goat"],
+  ["car", "goat", "goat"],
 ];
+
+let random = Math.floor(Math.random() * 3);
+let probability = probabilities[random];
+
+const door1 = document.getElementById("door1");
+const door2 = document.getElementById("door2");
+const door3 = document.getElementById("door3");
+
+const behindDoor1 = document.createElement("img");
+const behindDoor2 = document.createElement("img");
+const behindDoor3 = document.createElement("img");
+
+behindDoor1.src = `./assets/${probability[0]}1.png`
+behindDoor2.src = `./assets/${probability[1]}1.png`
+behindDoor3.src = `./assets/${probability[2]}1.png`
+
+door1.appendChild(behindDoor1)
+door2.appendChild(behindDoor2)
+door3.appendChild(behindDoor3)
+
+door1.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (door2.disabled === false && door3.disabled === false) {
+    const pickedDoor = document.createElement("span");
+    pickedDoor.innerHTML = "You picked door 1";
+    door1.appendChild(pickedDoor);
+    door1.disabled = true;
+  } else if (door2.disabled === true || door3.disabled === true) {
+    const revealedDoor = document.createElement("span");
+    revealedDoor.innerHTML = "There is a Goat behind door number 1";
+
+    door1.appendChild(revealedDoor);
+    door1.disabled = true;
+  } else {
+  }
+});
+
+door2.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const pickedDoor = document.createElement("span");
+  pickedDoor.innerHTML = "You picked door 2";
+
+  if (door1.disabled === false && door3.disabled === false) {
+    door2.appendChild(pickedDoor);
+    door2.disabled = true;
+  } else if (door1.disabled === true || door3.disabled === true) {
+    const revealedDoor = document.createElement("span");
+    revealedDoor.innerHTML = "There is a Goat behind door number 2";
+
+    door2.appendChild(revealedDoor);
+    door2.disabled = true;
+  }
+});
+
+door3.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const pickedDoor = document.createElement("span");
+  pickedDoor.innerHTML = "You picked door 3";
+
+  if (door2.disabled === false && door1.disabled === false) {
+    door3.appendChild(pickedDoor);
+    door3.disabled = true;
+  } else if (door2.disabled === true || door1.disabled === true) {
+    const revealedDoor = document.createElement("span");
+    revealedDoor.innerHTML = "There is a Goat behind door number 3";
+
+    door3.appendChild(revealedDoor);
+    door3.disabled = true;
+  }
+});
 
 const pickedDoor = Math.floor(Math.random() * 3);
 
@@ -24,15 +96,15 @@ for (i = 0; i < 1000; i++) {
   } else if (pickedDoor === 2) {
     remainingDoors = probability.slice(0, 2);
   } else {
-    remainingDoors = probability.filter(check = (prob, index) => {
-      if(index !== pickedDoor){
-        return prob
-      }
-    })
+    remainingDoors = probability.filter(
+      (check = (prob, index) => {
+        if (index !== pickedDoor) {
+          return prob;
+        }
+      })
+    );
     // remainingDoors.push(probability[0], probability[2]);
   }
-
-
 
   const checkDoor = (door) => {
     if (door.every((d) => d === "Goat")) {

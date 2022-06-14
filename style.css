@@ -9,76 +9,95 @@
     box-sizing: border-box;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    color: var(--primary-color);
+    font-family: 'Lato', sans-serif;
 }
 
 body {
-    background-color: var(--secondary-background-color);
+    background-color:  #13180a;
 }
 
-.main-container{
+.main-container {
+    background-color: olivedrab;
     margin: 5% 10%;
+    padding: 2%;
 }
 
-header h1{
+header h1 {
     text-align: center;
 }
 
-header p{
+header q {
+    display: block;
     text-align: justify;
-    padding: 2vw 0;
+    padding: 2vw;
 }
 
-main{
+main {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     column-gap: 10px;
 }
 
-aside{
+aside {
     padding: 100px 0;
 }
 
-aside span{
+aside span {
     display: block;
     padding: 1vw 0;
     text-align: center;
 }
 
-aside img{
+aside img {
     width: 100%;
 }
 
-.game-intro h2{
+.game-intro h2 {
     text-align: center;
     padding: 1vw 0;
 }
 
-.game-intro p{
+.game-intro p {
     padding: 1vw 0;
 }
 
-.doors-section > h3 {
+.doors-section>h3 {
     text-align: center;
     padding: 1vw 0;
 }
 
-.doors{
+.doors {
     display: flex;
     align-items: center;
     column-gap: 1vw;
 }
 
-.doors > *{
-    cursor: pointer;
+.doors p{
+ text-align: center;
 }
 
-.doors img{
+.doors>* {
+    color: white;
+    position: relative;
+    cursor: pointer;
+    background-color: olivedrab;
+    border: none;
+}
+
+.doors > * span{
+    position: absolute;
+    text-align: center;
+    display: block;
+    top: 5vw;
+    width: 50%;
+    margin-left: 3vw;
+}
+
+.doors img {
     width: 100%;
 }
 
-footer{
+footer {
     text-align: center;
     padding-top: 2vw;
     border-top: 1px solid silver;

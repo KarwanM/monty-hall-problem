@@ -107,10 +107,10 @@ for (i = 0; i < 1000; i++) {
   }
 
   const checkDoor = (door) => {
-    if (door.every((d) => d === "Goat")) {
+    if (door.every((d) => d === "goat")) {
       return Math.floor(Math.random() * 2);
     } else {
-      return door.indexOf("Goat");
+      return door.indexOf("goat");
     }
   };
 
@@ -140,7 +140,7 @@ for (i = 0; i < 1000; i++) {
   // );
 
   const stickToTheDoor = (result) => {
-    if (result === "Car") {
+    if (result === "car") {
       return stickWinner++;
     } else {
       return stickLosser++;
@@ -148,7 +148,7 @@ for (i = 0; i < 1000; i++) {
   };
 
   const switchTheDoor = (result) => {
-    if (result === "Car") {
+    if (result === "car") {
       return switchWinner++;
     } else {
       return switchLooser++;

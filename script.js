@@ -124,7 +124,6 @@ const startTheGame = () => {
 
   // Random probability
   probability = probabilities[random];
-  console.log(probability);
 
   // Declear a new array for the remaining doors after picking a door
   let remainingDoors = [];
@@ -328,8 +327,15 @@ resetBtn.addEventListener("click", () => {
 
 /* ------------------------- Random games -------------------------*/
 
-const randomGames = document.getElementById("number").value;
+const randomGames = document.getElementById("number");
 const randomButton = document.getElementById("random-button");
+const numberOfGames = document.getElementById("random-games");
+const displayStickRandomWinners = document.getElementById(
+  "stick-random-winners"
+);
+const displaySwitchRandomWinners = document.getElementById(
+  "switch-random-winners"
+);
 
 randomButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -339,11 +345,11 @@ randomButton.addEventListener("click", (e) => {
 
   const randomPickedDoor = Math.floor(Math.random() * 3);
 
-  for (i = 0; i < 1000; i++) {
+  for (i = 0; i < randomGames.value; i++) {
     let random = Math.floor(Math.random() * 3);
     let probability = probabilities[random];
     let remainingDoors = [];
-  
+
     if (randomPickedDoor === 0) {
       remainingDoors = probability.slice(1, 3);
     } else if (randomPickedDoor === 2) {
@@ -357,7 +363,7 @@ randomButton.addEventListener("click", (e) => {
         })
       );
     }
-  
+
     const checkDoor = (door) => {
       if (door.every((d) => d === "goat")) {
         return Math.floor(Math.random() * 2);
@@ -365,57 +371,36 @@ randomButton.addEventListener("click", (e) => {
         return door.indexOf("goat");
       }
     };
-  
-    let revealedDoor = checkDoor(remainingDoors);
-    let unRevealedDoor;
-  
-    if (revealedDoor === 0) {
-      unRevealedDoor = 1;
+
+    let randomRevealedDoor = checkDoor(remainingDoors);
+    let randomSwitchDoor;
+
+    if (randomRevealedDoor === 0) {
+      randomSwitchDoor = 1;
     } else {
-      unRevealedDoor = 0;
+      randomSwitchDoor = 0;
     }
-  
-    // console.log("\nPicked Door : " + 1);
-    // console.log("\nBehind the Doors : " + probability);
-    // console.log("\nThe remaining doors : " + probabilityWithoutPickedDoor);
-    // console.log("\nRevealed Door is Door number : " + parseInt(revealedDoor + 2));
-    // console.log(
-    //   "\nUnrevealed Door is Door number : " + parseInt(unRevealedDoor + 2)
-    // );
-  
-    // console.log(
-    //   "\nBehind revealed Door is : " + probabilityWithoutPickedDoor[revealedDoor]
-    // );
-    // console.log(
-    //   "\nBehind unrevealed Door is : " +
-    //     probabilityWithoutPickedDoor[unRevealedDoor]
-    // );
-  
+
     const stickToTheDoor = (result) => {
       if (result === "car") {
         return randomStickWinner++;
-      } else {
-        return randomSwitchWinner++;
       }
     };
-  
+
     const switchTheDoor = (result) => {
       if (result === "car") {
         return randomSwitchWinner++;
-      } else {
-        return randomStickWinner++;
       }
     };
-  
-    const stick = stickToTheDoor(probability[randomPickedDoor]);
-  
-    const switchDoor = switchTheDoor(remainingDoors[unRevealedDoor]);
-  
-    // console.log(stick + switchDoor);
-  }
-  
-  console.log("\n The number of winners if stick is : " + stickWinner);
-  console.log("\n The number of winners if switch is : " + switchWinner);
-  
-});
 
+    stickToTheDoor(probability[randomPickedDoor]);
+
+    switchTheDoor(remainingDoors[randomSwitchDoor]);
+
+  }
+
+  numberOfGames.innerHTML = "Number of games: " + randomGames.value
+  displayStickRandomWinners.innerHTML = "Winners if stick to the first picked door is : " + randomStickWinner;
+  displaySwitchRandomWinners.innerHTML = "Winners if switch to the other is : " + randomSwitchWinner;
+  randomGames.value = "";
+});

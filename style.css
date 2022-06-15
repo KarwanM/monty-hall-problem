@@ -32,6 +32,8 @@ header q {
     padding: 2vw;
 }
 
+
+
 main {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -52,7 +54,11 @@ aside img {
     width: 100%;
 }
 
-.game-intro h2 {
+
+
+
+
+h2, h3 {
     text-align: center;
     padding: 1vw 0;
 }
@@ -61,7 +67,10 @@ aside img {
     padding: 1vw 0;
 }
 
-.doors-section>h3 {
+
+
+
+.doors-section>* {
     text-align: center;
     padding: 1vw 0;
 }
@@ -76,26 +85,56 @@ aside img {
  text-align: center;
 }
 
-.doors>* {
-    color: white;
+.doors button {
     position: relative;
     cursor: pointer;
     background-color: olivedrab;
     border: none;
 }
 
-.doors > * span{
-    position: absolute;
-    text-align: center;
-    display: block;
-    top: 5vw;
-    width: 50%;
-    margin-left: 3vw;
-}
-
-.doors img {
+.door {
     width: 100%;
 }
+
+.door-mark{
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 32%;
+    left: 32%;
+    width: 36%;
+}
+
+.info > *, .stick-or-switch, .reset *{
+    display: none;
+}
+
+
+
+.info p{
+    margin: 10px;
+}
+
+.reset-button button,.stick-or-switch button{
+    margin: 0 1vw;
+    padding: 0.5vw 2vw;
+    background-color: olivedrab;
+    border: solid 1px black;
+    border-radius: 2vw;
+    cursor: pointer;
+}
+
+.reset-button button:hover, .stick-or-switch button:hover{
+    color: olivedrab;
+    background-color: #13180a;
+}
+
+.reset-button{
+    width: 100%;
+    margin: 2vw;
+    text-align: center;
+}
+
 
 footer {
     text-align: center;

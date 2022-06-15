@@ -27,7 +27,7 @@
                 <span>Guest</span>
             </aside>
 
-            <section class="the-game">
+            <div>
                 <section class="game-intro">
                     <h2>Let's start</h2>
                     <p>You are given the choice of three doors, behind one door is a prize (Car or Money, or ....)
@@ -35,28 +35,56 @@
                     </p>
                 </section>
 
-                <section class="doors-section">
+                <section id="doors" class="doors-section">
                     <h3>Pick a door</h3>
                     <div class="doors">
-                        <button id="door1">
-                            <img src="./assets/closed-door.png" alt="closed door">
+                        <button id="door1-container">
+                            <img class="door" src="./assets/closed-door.png" alt="closed door">
+                            <img class="door-mark" id="door1-mark">
                             <p>Door 1</p>
                         </button>
-                        <button id="door2">
-                            <img src="./assets/closed-door.png" alt="closed door">
+                        <button id="door2-container">
+                            <img class="door" src="./assets/closed-door.png" alt="closed door">
+                            <img class="door-mark" id="door2-mark">
                             <p>Door 2</p>
                         </button>
-                        <button id="door3">
-                            <img src="./assets/closed-door.png" alt="closed door">
+                        <button id="door3-container">
+                            <img class="door" src="./assets/closed-door.png" alt="closed door">
+                            <img class="door-mark" id="door3-mark">
                             <p>Door 3</p>
                         </button>
                     </div>
+                    <div class="info">
+                        <p id="picked"></p>
+                        <p id="revealed"></p>
+                        <p id="switch"></p>
+                    </div>
+                    <div class="stick-or-switch" id="stick-or-switch">
+                        <button id="stick-button">Stick</button>
+                        <button id="switch-button">Switch</button>
+                    </div>
                 </section>
-            </section>
-            <aside class="left-aside-guest">
+                <div class="reset">
+                    <h3>Results</h3>
+                    <p>Number of games:</p>
+                    <p>Winner if Stick to the original door: </p>
+                    <p>Winner if Switch to the other door: </p>
+                    <div class="reset-button">
+                        <button id="new-game">New Game</button>
+                        <button id="reset-data">Reset the Data</button>
+                    </div>
+                </div>
+            </div>
+            <aside class="left-aside-host">
                 <img src="./assets/host.png" alt="">
                 <span>Host</span>
             </aside>
+
+            <section class="random">
+                <h2>Try as many random times as you want </h2>
+                <label for="number">How many times:</label>
+                <input type="text">
+            </section>
         </main>
         <footer>KI | Monty Hall problem &copy; 2022</footer>
     </div>

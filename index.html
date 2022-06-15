@@ -22,80 +22,128 @@
         </header>
 
         <main>
-            <aside class="left-aside-guest">
-                <img src="./assets/guest.png" alt="Host">
-                <span>Guest</span>
-            </aside>
+            <div class="the-game">
+                <aside class="left-aside-guest">
+                    <img src="./assets/guest.png" alt="Host">
+                    <span>Guest</span>
+                </aside>
 
-            <div>
-                <section class="game-intro">
-                    <h2>Let's start</h2>
-                    <p>You are given the choice of three doors, behind one door is a prize (Car or Money, or ....)
-                        behind the other two, goats.
-                    </p>
-                </section>
+                <div class="game-container">
+                    <section class="game-intro">
+                        <h2>Let's start</h2>
+                        <p>You are given the choice of three doors, behind one door is a prize (Car or Money, or ....)
+                            behind the other two, goats.
+                        </p>
+                    </section>
 
-                <section id="doors" class="doors-section">
-                    <h3>Start a new game and pick a door</h3>
-                    <div class="doors">
-                        <button id="door1-container">
-                            <img class="door" src="./assets/closed-door.png" alt="closed door">
-                            <img class="door-mark" id="door1-mark">
-                            <p>Door 1</p>
-                        </button>
-                        <button id="door2-container">
-                            <img class="door" src="./assets/closed-door.png" alt="closed door">
-                            <img class="door-mark" id="door2-mark">
-                            <p>Door 2</p>
-                        </button>
-                        <button id="door3-container">
-                            <img class="door" src="./assets/closed-door.png" alt="closed door">
-                            <img class="door-mark" id="door3-mark">
-                            <p>Door 3</p>
-                        </button>
+                    <section id="doors" class="doors-section">
+                        <h3>Start a new game and pick a door</h3>
+                        <div class="doors">
+                            <button id="door1-container">
+                                <img class="door" src="./assets/closed-door.png" alt="closed door">
+                                <img class="door-mark" id="door1-mark">
+                                <p>Door 1</p>
+                            </button>
+                            <button id="door2-container">
+                                <img class="door" src="./assets/closed-door.png" alt="closed door">
+                                <img class="door-mark" id="door2-mark">
+                                <p>Door 2</p>
+                            </button>
+                            <button id="door3-container">
+                                <img class="door" src="./assets/closed-door.png" alt="closed door">
+                                <img class="door-mark" id="door3-mark">
+                                <p>Door 3</p>
+                            </button>
+                        </div>
+                        <div class="info">
+                            <p id="picked"></p>
+                            <p id="revealed"></p>
+                            <p id="switch"></p>
+                        </div>
+                        <div class="stick-or-switch" id="stick-or-switch">
+                            <button id="stick-button">Stick</button>
+                            <button id="switch-button">Switch</button>
+                        </div>
+                        <div id="final-result" class="final-result">
+                            <h3 id="text-result"></h3>
+                            <img id="image-result">
+                        </div>
+                    </section>
+                    <div id="new-and-reset" class="reset">
+                        <button id="new-game">Start New Game</button>
+                        <button id="reset-data">Reset the Data</button>
                     </div>
-                    <div class="info">
-                        <p id="picked"></p>
-                        <p id="revealed"></p>
-                        <p id="switch"></p>
+                    <div id="data" class="data">
+                        <p id="game-count"></p>
+                        <p id="stick-winner"></p>
+                        <p id="switch-winner"></p>
                     </div>
-                    <div class="stick-or-switch" id="stick-or-switch">
-                        <button id="stick-button">Stick</button>
-                        <button id="switch-button">Switch</button>
-                    </div>
-                    <div id="final-result" class="final-result">
-                        <h3 id="text-result"></h3>
-                        <img id="image-result">
-                    </div>
-                </section>
-                <div id="new-and-reset" class="reset">
-                    <button id="new-game">Start New Game</button>
-                    <button id="reset-data">Reset the Data</button>
+
                 </div>
-                <div id="data" class="data">
-                    <p id="game-count"></p>
-                    <p id="stick-winner"></p>
-                    <p id="switch-winner"></p>
-                </div>
-                <section class="random">
-                    <h3>Try random times</h3>
-                    <div>
-                        <label for="number">Times: </label>
-                        <input type="text" id="number">
-                    </div>
-                    <p id="random-games"></p>
-                    <p id="stick-random-winners"></p>
-                    <p id="switch-random-winners"></p>
-                    <button id="random-button">Show result</button>
-                </section>
-                <section class="conclusion">
-                    <h3>Conclusion</h3>
-                </section>
+                <aside class="left-aside-host">
+                    <img src="./assets/host.png" alt="">
+                    <span>Host</span>
+                </aside>
             </div>
-            <aside class="left-aside-host">
-                <img src="./assets/host.png" alt="">
-                <span>Host</span>
-            </aside>
+            <section class="random">
+                <h3>Try random times</h3>
+                <div>
+                    <label for="number">Times: </label>
+                    <input type="text" id="number">
+                </div>
+                <p id="random-games"></p>
+                <p id="stick-random-winners"></p>
+                <p id="switch-random-winners"></p>
+                <button id="random-button">Show result</button>
+            </section>
+            <section class="explanation">
+                <h3>Explanation</h3>
+                <div>
+                    <p>Before picking a door, we have 1/3 chance of winning and the other two doors together 2/3 chance
+                        of winning</p>
+                    <div class="doors-before-pick">
+                        <div class="explain-door">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                            <div>
+                                <img class="door-marker" src="./assets/correct.png" alt="door marker">
+                            </div>
+                            <p>1/3</p>
+                        </div>
+                        <div class="explain-door">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                            <p>2/3</p>
+                        </div>
+                        <div class="explain-door">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                            <p>2/3</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>After picking a door, the host always reveals one of the two remaining doors with a Goat behind, that means the remaining
+                        door has 2/3 chance of winning</p>
+                    <div class="doors-after-pick">
+                        <div class="explain-door">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                            <div>
+                                <img class="door-marker" src="./assets/correct.png" alt="door marker">
+                            </div>
+                            <p>1/3</p>
+                        </div>
+                        <div class="explain-door">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                            <div>
+                                <img class="door-marker" src="./assets/error.png" alt="door marker">
+                            </div>
+                            <p>0/3</p>
+                        </div>
+                        <div class="explain-door">
+                            <img src="./assets/closed-door.png" alt="closed door">
+                            <p>2/3</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer>KI | Monty Hall problem &copy; 2022</footer>
     </div>

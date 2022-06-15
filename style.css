@@ -34,7 +34,7 @@ header q {
 
 
 
-main {
+.the-game {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     column-gap: 10px;
@@ -100,7 +100,6 @@ h3 {
 .door-mark {
     display: none;
     position: absolute;
-    text-align: center;
     top: 32%;
     left: 32%;
     width: 36%;
@@ -119,12 +118,12 @@ h3 {
 
 
 
-.data{
+.data {
     display: none;
     margin-top: 2vw;
 }
 
-.data p{
+.data p {
     padding: 0.5vw;
     text-align: center;
 }
@@ -135,12 +134,14 @@ h3 {
 }
 
 
-.reset{
+.reset {
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
-.reset button, #random-button,
+
+.reset button,
+#random-button,
 .stick-or-switch button {
     margin: 0 1vw;
     padding: 0.5vw 2vw;
@@ -150,7 +151,8 @@ h3 {
     cursor: pointer;
 }
 
-.reset button:hover, #random-button:hover,
+.reset button:hover,
+#random-button:hover,
 .stick-or-switch button:hover {
     color: olivedrab;
     background-color: #13180a;
@@ -162,16 +164,51 @@ h3 {
     display: none;
 }
 
-.random{
+.random {
     text-align: center;
-   margin: 5vw 0;
-   border-top: 1px solid silver;
+    margin: 5vw 0;
+    border-top: 1px solid silver;
 }
 
-.random > *{
+.random>* {
     margin: 1vw;
 }
 
+.explanation {
+    text-align: center;
+    border-top: 1px solid silver;
+}
+
+.explanation p{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+
+.doors-before-pick,
+.doors-after-pick {
+    display: flex;
+    width: 50%;
+    margin: 2vw auto;
+    gap: 5%;
+}
+
+.explain-door{
+    position: relative;
+}
+
+.explain-door>img{
+    width: 100%;
+}
+
+.door-marker {
+    position: absolute;
+    width: 40%;
+    top: 30%;
+    left: 30%;
+}
 
 footer {
     text-align: center;

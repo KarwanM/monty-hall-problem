@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color:  #13180a;
+    background-color: #13180a;
 }
 
 .main-container {
@@ -58,7 +58,8 @@ aside img {
 
 
 
-h2, h3 {
+h2,
+h3 {
     text-align: center;
     padding: 1vw 0;
 }
@@ -81,8 +82,8 @@ h2, h3 {
     column-gap: 1vw;
 }
 
-.doors p{
- text-align: center;
+.doors p {
+    text-align: center;
 }
 
 .doors button {
@@ -96,7 +97,7 @@ h2, h3 {
     width: 100%;
 }
 
-.door-mark{
+.door-mark {
     display: none;
     position: absolute;
     text-align: center;
@@ -105,17 +106,42 @@ h2, h3 {
     width: 36%;
 }
 
-.info > *, .stick-or-switch, .reset *{
+
+.final-result {
+    width: 50%;
+    margin: 0 auto;
     display: none;
 }
 
+.final-result img {
+    width: 100%;
+}
 
 
-.info p{
+
+.data{
+    display: none;
+    margin-top: 2vw;
+}
+
+.data p{
+    padding: 0.5vw;
+    text-align: center;
+}
+
+
+.info p {
     margin: 10px;
 }
 
-.reset-button button,.stick-or-switch button{
+
+.reset{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.reset button, #random-button,
+.stick-or-switch button {
     margin: 0 1vw;
     padding: 0.5vw 2vw;
     background-color: olivedrab;
@@ -124,15 +150,25 @@ h2, h3 {
     cursor: pointer;
 }
 
-.reset-button button:hover, .stick-or-switch button:hover{
+.reset button:hover, #random-button:hover,
+.stick-or-switch button:hover {
     color: olivedrab;
     background-color: #13180a;
 }
 
-.reset-button{
-    width: 100%;
-    margin: 2vw;
+.info>*,
+.stick-or-switch,
+#reset-data {
+    display: none;
+}
+
+.random{
     text-align: center;
+   margin: 5vw 0;
+}
+
+.random > *{
+    margin: 1vw;
 }
 
 

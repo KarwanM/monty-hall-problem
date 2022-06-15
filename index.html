@@ -63,28 +63,36 @@
                         <button id="stick-button">Stick</button>
                         <button id="switch-button">Switch</button>
                     </div>
-                </section>
-                <div class="reset">
-                    <h3>Results</h3>
-                    <p>Number of games:</p>
-                    <p>Winner if Stick to the original door: </p>
-                    <p>Winner if Switch to the other door: </p>
-                    <div class="reset-button">
-                        <button id="new-game">New Game</button>
-                        <button id="reset-data">Reset the Data</button>
+                    <div id="final-result" class="final-result">
+                        <h3 id="text-result"></h3>
+                        <img id="image-result">
                     </div>
+                </section>
+                <div id="new-and-reset" class="reset">
+                    <button id="new-game">Start New Game</button>
+                    <button id="reset-data">Reset the Data</button>
                 </div>
+                <div id="data" class="data">
+                    <p id="game-count"></p>
+                    <p id="stick-winner"></p>
+                    <p id="switch-winner"></p>
+                </div>
+                <section class="random">
+                    <h3>Try random times</h3>
+                    <div>
+                        <label for="number">Times: </label>
+                        <input type="text" id="number">
+                    </div>
+                    <p id="random-games"></p>
+                    <p id="stick-random"></p>
+                    <p id="switch-random"></p>
+                    <button id="random-button">Show result</button>
+                </section>
             </div>
             <aside class="left-aside-host">
                 <img src="./assets/host.png" alt="">
                 <span>Host</span>
             </aside>
-
-            <section class="random">
-                <h2>Try as many random times as you want </h2>
-                <label for="number">How many times:</label>
-                <input type="text">
-            </section>
         </main>
         <footer>KI | Monty Hall problem &copy; 2022</footer>
     </div>

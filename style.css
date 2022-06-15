@@ -165,6 +165,7 @@ h3 {
 .random{
     text-align: center;
    margin: 5vw 0;
+   border-top: 1px solid silver;
 }
 
 .random > *{

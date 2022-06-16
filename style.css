@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 
-/* --------------- Reset style --------------- */
+/* --------------- Reset styles --------------- */
 
 * {
     margin: 0;
@@ -22,6 +22,8 @@ body {
     padding: 2%;
 }
 
+/* --------------- Header --------------- */
+
 header h1 {
     text-align: center;
 }
@@ -32,7 +34,15 @@ header q {
     padding: 2vw;
 }
 
+.game-name,
+.game-show,
+.host,
+.posed-name {
+    font-weight: bold;
+}
 
+
+/* --------------- Main game section --------------- */
 
 .the-game {
     display: grid;
@@ -55,19 +65,17 @@ aside img {
 }
 
 
-
-
-
 h2,
 h3 {
     text-align: center;
     padding: 1vw 0;
 }
 
+
 .game-intro p {
     padding: 1vw 0;
+    text-align: center;
 }
-
 
 
 
@@ -105,6 +113,16 @@ h3 {
     width: 36%;
 }
 
+.info>*,
+.stick-or-switch,
+#reset-data {
+    display: none;
+}
+
+.info p {
+    margin: 10px;
+}
+
 
 .final-result {
     width: 50%;
@@ -116,10 +134,7 @@ h3 {
     width: 100%;
 }
 
-
-
 .data {
-    display: none;
     margin-top: 2vw;
 }
 
@@ -129,40 +144,38 @@ h3 {
 }
 
 
-.info p {
-    margin: 10px;
-}
-
-
-.reset {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.reset button,
+#new-game,
+#reset-data,
 #random-button,
 .stick-or-switch button {
     margin: 0 1vw;
     padding: 0.5vw 2vw;
     background-color: olivedrab;
-    border: solid 1px black;
+    border: solid 1px #13180a;
     border-radius: 2vw;
     cursor: pointer;
 }
 
-.reset button:hover,
+#new-game:hover,
+#reset-data:hover,
 #random-button:hover,
 .stick-or-switch button:hover {
     color: olivedrab;
     background-color: #13180a;
 }
 
-.info>*,
-.stick-or-switch,
-#reset-data {
-    display: none;
+#new-game {
+    display: block;
+    margin: 0 auto;
 }
+
+
+#reset-data {
+    margin: 1vw auto;
+}
+
+
+/* --------------- Random game section --------------- */
 
 .random {
     text-align: center;
@@ -174,18 +187,23 @@ h3 {
     margin: 1vw;
 }
 
+/* --------------- Explanation section --------------- */
+
 .explanation {
     text-align: center;
     border-top: 1px solid silver;
 }
 
-.explanation p{
+.explanation>* {
+    margin: 2vw;
+}
+
+.explanation p {
     width: 70%;
     margin: 0 auto;
     text-align: center;
 
 }
-
 
 .doors-before-pick,
 .doors-after-pick {
@@ -195,11 +213,11 @@ h3 {
     gap: 5%;
 }
 
-.explain-door{
+.explain-door {
     position: relative;
 }
 
-.explain-door>img{
+.explain-door>img {
     width: 100%;
 }
 
@@ -209,6 +227,8 @@ h3 {
     top: 30%;
     left: 30%;
 }
+
+/* --------------- Footer --------------- */
 
 footer {
     text-align: center;

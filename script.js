@@ -27,6 +27,7 @@ const door1Marker = document.getElementById("door1-mark");
 const door2Marker = document.getElementById("door2-mark");
 const door3Marker = document.getElementById("door3-mark");
 
+const pickADoor = document.getElementById("pick-a-door");
 const pickedDoorText = document.getElementById("picked");
 const revealedDoorText = document.getElementById("revealed");
 const switchDoorText = document.getElementById("switch");
@@ -57,6 +58,8 @@ const pickedDoorDetails = (num, door, marker) => {
 
   pickedDoorText.innerHTML = "You have picked Door number " + num;
   pickedDoorText.style.display = "block";
+
+  pickADoor.style.display = "none";
 };
 
 /* ------------------------- Add revealed door details to layout after picking a door -------------------------*/
@@ -84,6 +87,16 @@ const switchDoorDetails = (num, door, mark) => {
 
     stickOrSwitchBtns.style.display = "block";
   }, 3000);
+};
+
+/* ------------------------- Disable and enable button, hide and show texts -------------------------*/
+
+const disableAndEnable = () => {
+  gameCount += 1;
+  resetBtn.style.display = "block";
+  newGameBtn.style.display = "block";
+  data.style.display = "block";
+  stickOrSwitchBtns.style.display = "none";
 };
 
 /* ------------------------- Check the remaining doors for a Goat behind and pick a random door with a Goat behind if there is more than one -------------------------*/
@@ -209,6 +222,7 @@ const startTheGame = () => {
 /* ------------------------- Reset the game and start a new one -------------------------*/
 
 const newGame = () => {
+
   door1Marker.src = "";
   door1Marker.style.display = "none";
 
@@ -233,13 +247,8 @@ const newGame = () => {
   door2.disabled = false;
   door3.disabled = false;
 
-  resetBtn.style.display = "none";
-
   finalResultDisplay.style.display = "none";
   imageResult.src = "";
-
-  stickBtn.disabled = false;
-  switchBtn.disabled = false;
 
   startTheGame();
 };
@@ -257,7 +266,6 @@ const result = (text, door, behind, result) => {
 /* ------------------------- Results of multiple games -------------------------*/
 
 const resultData = () => {
-  gameCount += 1;
   displayGameCount.innerHTML = "Games played: " + gameCount;
   displayStickWinner.innerHTML =
     "Winners if Sticking with original Door: " + stickWinner;
@@ -269,7 +277,7 @@ const resultData = () => {
 
 stickBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  resetBtn.style.display = "block";
+
   if (probability[pickedDoor] === "car") {
     result("Sticking ", pickedDoor, probability[pickedDoor], " Won ");
     stickWinner += 1;
@@ -277,10 +285,7 @@ stickBtn.addEventListener("click", (e) => {
     switchWinner += 1;
     result("Sticking ", pickedDoor, probability[pickedDoor], "Lost");
   }
-  newGameBtn.disabled = false;
-  switchBtn.disabled = true;
-  stickBtn.disabled = true;
-  data.style.display = "block";
+  disableAndEnable();
   resultData();
 });
 
@@ -288,8 +293,6 @@ stickBtn.addEventListener("click", (e) => {
 
 switchBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
-  resetBtn.style.display = "block";
   if (probability[switchDoor] === "car") {
     result("Switching ", switchDoor, probability[switchDoor], " Won ");
     switchWinner += 1;
@@ -297,10 +300,7 @@ switchBtn.addEventListener("click", (e) => {
     result("Switching ", switchDoor, probability[switchDoor], " Lost ");
     stickWinner += 1;
   }
-  newGameBtn.disabled = false;
-  stickBtn.disabled = true;
-  switchBtn.disabled = true;
-  data.style.display = "block";
+  disableAndEnable();
   resultData();
 });
 
@@ -308,18 +308,19 @@ switchBtn.addEventListener("click", (e) => {
 
 newGameBtn.addEventListener("click", () => {
   newGame();
-  newGameBtn.innerHTML = "Start new game"
-  newGameBtn.disabled = true;
+  newGameBtn.innerHTML = "Start a new game";
+  newGameBtn.style.display = "none";
+  pickADoor.style.display = "block";
 });
 
 /* ------------------------- Reset all the data from previous games -------------------------*/
 
 resetBtn.addEventListener("click", () => {
-  newGame();
   gameCount = 0;
   stickWinner = 0;
   switchWinner = 0;
-  data.style.display = "none";
+  resetBtn.style.display = "none";
+  resultData();
 });
 
 /* ------------------------- Random games -------------------------*/
@@ -393,11 +394,12 @@ randomButton.addEventListener("click", (e) => {
     stickToTheDoor(probability[randomPickedDoor]);
 
     switchTheDoor(remainingDoors[randomSwitchDoor]);
-
   }
 
-  numberOfGames.innerHTML = "Number of games: " + randomGames.value
-  displayStickRandomWinners.innerHTML = "Winners if stick to the first picked door is : " + randomStickWinner;
-  displaySwitchRandomWinners.innerHTML = "Winners if switch to the other is : " + randomSwitchWinner;
+  numberOfGames.innerHTML = "Number of games: " + randomGames.value;
+  displayStickRandomWinners.innerHTML =
+    "Winners if stick to the first picked door is : " + randomStickWinner;
+  displaySwitchRandomWinners.innerHTML =
+    "Winners if switch to the other is : " + randomSwitchWinner;
   randomGames.value = "";
 });

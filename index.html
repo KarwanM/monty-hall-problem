@@ -13,11 +13,11 @@
     <div class="main-container">
         <header>
             <h1>Monty Hall problem</h1>
-            <q>The <span class="name">Monty Hall problem</span> is a brain teaser, in the form of a probability puzzle,
-                loosely based on the American television game show <span>Let's Make a Deal</span> and named after its
-                original host, <span>Monty Hall</span>. The problem was originally posed (and solved) in a letter by
-                <span>
-                    Steve Selvin</span> to the American Statistician in 1975.
+            <q>The <span class="game-name">Monty Hall problem</span> is a brain teaser, in the form of a probability
+                puzzle, loosely based on the American television game show <span class="game-show">"Let's Make a
+                    Deal"</span> and named after its original host, <span class="host">Monty Hall</span>. The problem
+                was originally posed (and solved) in a letter by
+                <span class="posed-name">Steve Selvin</span> to the American Statistician in 1975.
             </q>
         </header>
 
@@ -31,13 +31,14 @@
                 <div class="game-container">
                     <section class="game-intro">
                         <h2>Let's start</h2>
-                        <p>You are given the choice of three doors, behind one door is a prize (Car or Money, or ....)
-                            behind the other two, goats.
+                        <p>You are given the choice of three doors, behind one of the doors is a prize(Car or Money, or
+                            ... etc.),
+                            behind the other two, Goats.
                         </p>
                     </section>
 
                     <section id="doors" class="doors-section">
-                        <h3>Start a new game and pick a door</h3>
+                        <h3>Start the game and pick a door</h3>
                         <div class="doors">
                             <button id="door1-container">
                                 <img class="door" src="./assets/closed-door.png" alt="closed door">
@@ -56,6 +57,7 @@
                             </button>
                         </div>
                         <div class="info">
+                            <p id="pick-a-door">Pick a door</p>
                             <p id="picked"></p>
                             <p id="revealed"></p>
                             <p id="switch"></p>
@@ -69,14 +71,12 @@
                             <img id="image-result">
                         </div>
                     </section>
-                    <div id="new-and-reset" class="reset">
-                        <button id="new-game">Start the Game</button>
-                        <button id="reset-data">Reset the Data</button>
-                    </div>
+                    <button id="new-game">Start the game</button>
                     <div id="data" class="data">
                         <p id="game-count"></p>
                         <p id="stick-winner"></p>
                         <p id="switch-winner"></p>
+                        <button id="reset-data">Reset the data</button>
                     </div>
 
                 </div>
@@ -88,7 +88,7 @@
             <section class="random">
                 <h3>Try random times</h3>
                 <div>
-                    <label for="number">Times: </label>
+                    <label for="number">Number of times: </label>
                     <input type="text" id="number">
                 </div>
                 <p id="random-games"></p>
@@ -98,6 +98,7 @@
             </section>
             <section class="explanation">
                 <h3>Explanation</h3>
+                <p>Statistically the best option is to switch doors, here's why.</p>
                 <div>
                     <p>Before picking a door, we have 1/3 chance of winning and the other two doors together 2/3 chance
                         of winning</p>
@@ -120,7 +121,8 @@
                     </div>
                 </div>
                 <div>
-                    <p>After picking a door, the host always reveals one of the two remaining doors with a Goat behind, that means the remaining
+                    <p>After picking a door, the host always reveals one of the two remaining doors with a Goat behind,
+                        that means the remaining
                         door has 2/3 chance of winning</p>
                     <div class="doors-after-pick">
                         <div class="explain-door">

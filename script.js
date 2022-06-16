@@ -79,7 +79,7 @@ const switchDoorDetails = (num, door, mark) => {
     door.disabled = true;
 
     switchDoorText.innerHTML =
-      "Would you like to Switch the Door " + num + " ?";
+      "Would you like to Switch to the Door " + num + " ?";
     switchDoorText.style.display = "block";
 
     stickOrSwitchBtns.style.display = "block";
@@ -134,7 +134,6 @@ const startTheGame = () => {
     e.preventDefault();
 
     pickedDoor = 0;
-    gameCount = +1;
 
     if (door2.disabled === false && door3.disabled === false) {
       pickedDoorDetails(1, door1, door1Marker);
@@ -159,7 +158,6 @@ const startTheGame = () => {
     e.preventDefault();
 
     pickedDoor = 1;
-    gameCount = +1;
 
     if (door1.disabled === false && door3.disabled === false) {
       pickedDoorDetails(2, door2, door2Marker);
@@ -190,7 +188,6 @@ const startTheGame = () => {
     e.preventDefault();
 
     pickedDoor = 2;
-    gameCount = +1;
 
     if (door2.disabled === false && door1.disabled === false) {
       pickedDoorDetails(3, door3, door3Marker);
@@ -260,6 +257,7 @@ const result = (text, door, behind, result) => {
 /* ------------------------- Results of multiple games -------------------------*/
 
 const resultData = () => {
+  gameCount += 1;
   displayGameCount.innerHTML = "Games played: " + gameCount;
   displayStickWinner.innerHTML =
     "Winners if Sticking with original Door: " + stickWinner;
@@ -284,7 +282,6 @@ stickBtn.addEventListener("click", (e) => {
   stickBtn.disabled = true;
   data.style.display = "block";
   resultData();
-  gameCount += 1;
 });
 
 /* ------------------------- Switch with the other door and show result -------------------------*/
@@ -305,7 +302,6 @@ switchBtn.addEventListener("click", (e) => {
   switchBtn.disabled = true;
   data.style.display = "block";
   resultData();
-  gameCount += 1;
 });
 
 /* ------------------------- Start a new one -------------------------*/

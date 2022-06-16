@@ -308,6 +308,7 @@ switchBtn.addEventListener("click", (e) => {
 
 newGameBtn.addEventListener("click", () => {
   newGame();
+  newGameBtn.innerHTML = "Start new game"
   newGameBtn.disabled = true;
 });
 

@@ -82,7 +82,7 @@ const switchDoorDetails = (num, door, mark) => {
     door.disabled = true;
 
     switchDoorText.innerHTML =
-      "Would you like to Switch to the Door " + num + " ?";
+      "Would you like to Switch to Door number " + num + " ?";
     switchDoorText.style.display = "block";
 
     stickOrSwitchBtns.style.display = "block";
